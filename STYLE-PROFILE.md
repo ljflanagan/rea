@@ -159,10 +159,22 @@ When the owner asks for a house "in this style":
 | Curved stairs, stair openings in the floor above | Not built |
 | Brick, stone or other cladding in the 3D model | Not built; one wall colour |
 
-## Budget note
+## Budget
 
-The first test spec asked for 1,350 sq ft at $200,000 total. Perry's smallest
-Houston design is 1,500 sq ft at a $348,900 base price, lot included. A house
-with this style's standard features will not come near $148 per sq ft unless
-the scope is cut hard; expect to choose between the budget and the feature
-list.
+The owner's standing budget (stated 2026-11-13): homes priced from **$140,000
+to $250,000**. Whether that is construction cost or sale price, and whether it
+includes the lot, is not yet settled; ask before sizing a house against it.
+
+Perry's smallest Houston design is 1,500 sq ft at a $348,900 base price, lot
+included, so their whole catalogue sits above this budget. Designs for this
+owner therefore take Perry's layout patterns at a smaller size and with fewer
+features. To hold cost: one storey, a plain rectangle, one simple roof, a
+2-car garage at most, 3 bedrooms and 2 baths, 9 ft ceilings, and wet rooms
+grouped together. Keep the island kitchen, covered patio and walk-in closets;
+drop the home office, game room, guest suite, mud room and tall ceilings
+first.
+
+Unverified planning figures from general cost guides put basic Houston-area
+construction at roughly $90 to $185 per sq ft excluding land. No Beaumont
+figure was found. Size a house from a builder's quoted cost per sq ft, not
+from these.

@@ -27,6 +27,9 @@ python3 -m housegen design specs/<name>.yaml
 - Style: the owner wants homes in the manner of Perry Homes. Follow
   [STYLE-PROFILE.md](STYLE-PROFILE.md): original layouts using its patterns,
   never a copy of one of their plans.
+- Budget: the owner builds homes priced $140,000 to $250,000. Size designs to
+  that; see the Budget section of STYLE-PROFILE.md and ask whether a given
+  figure is construction cost or sale price and whether it includes the lot.
 - Every sheet and file carries the stamp "CONCEPT — NOT FOR CONSTRUCTION —
   requires validation by a licensed Texas architect/PE." Never remove it.
 - Fix validation failures by editing the spec or layout and re-running; never
