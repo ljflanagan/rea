@@ -386,7 +386,24 @@ def validate(b, spec):
            ("Interior doors", str(sum(1 for o in b.openings if o.kind == "door" and not o.exterior))),
            ("Windows", f"{sum(1 for o in b.openings if o.kind == 'window')} ({ga:.0f} sq ft glazing incl. glazed doors)"),
            ("Bathrooms / wet rooms", f"{n_bath} baths + kitchen + laundry")]
-    budget = (spec.get("budget") or {}).get("total_usd")
+    bd = spec.get("budget") or {}
+    if bd.get("sale_price_usd") and bd.get("lot_cost_usd") is not None:
+        from .budget import OTHER, construction_budget
+        cb = construction_budget(bd["sale_price_usd"], bd["lot_cost_usd"])
+        need = cb / gross
+        msg = (f"Sale price ${bd['sale_price_usd']:,.0f} less the ${bd['lot_cost_usd']:,.0f} lot and {OTHER * 100:.1f}% for "
+               f"builder overhead, profit, sales and financing (NAHB 2024 national shares) leaves ${cb:,.0f} to "
+               f"build with: ${need:,.0f} per sq ft of living area for this {gross:,.0f} sq ft house, with garage, "
+               "porch, patio and site work paid from the same sum.")
+        cps = bd.get("build_cost_per_sqft")
+        if cps:
+            st_ = "PASS" if need >= cps else "FAIL"
+            msg += f" The spec's build cost is ${cps:,.0f} per sq ft, so the budget supports {cb / cps:,.0f} sq ft."
+        else:
+            st_ = "INFO"
+            msg += " No build cost per sq ft was given, so this is not judged."
+        add("Budget", st_, msg)
+    budget = bd.get("total_usd")
     if budget:
         add("Budget", "INFO", f"${budget:,.0f} over {gross:,.0f} sq ft is ${budget / gross:,.0f} per sq ft if the "
             "whole budget goes to the building. The pipeline does not price construction: no current local cost "

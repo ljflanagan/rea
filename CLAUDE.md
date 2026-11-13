@@ -27,9 +27,11 @@ python3 -m housegen design specs/<name>.yaml
 - Style: the owner wants homes in the manner of Perry Homes. Follow
   [STYLE-PROFILE.md](STYLE-PROFILE.md): original layouts using its patterns,
   never a copy of one of their plans.
-- Budget: the owner builds homes priced $140,000 to $250,000. Size designs to
-  that; see the Budget section of STYLE-PROFILE.md and ask whether a given
-  figure is construction cost or sale price and whether it includes the lot.
+- Budget: the owner sells homes for $140,000 to $250,000, lot included. Size
+  each design with [BUDGET-MODEL.md](BUDGET-MODEL.md)
+  (`python3 -m housegen budget --lot <cost>`) and put `sale_price_usd` and
+  `lot_cost_usd` in the spec. Lot cost, build cost per sq ft and minimum lot
+  size in that file are unverified; ask the owner for real figures.
 - Every sheet and file carries the stamp "CONCEPT — NOT FOR CONSTRUCTION —
   requires validation by a licensed Texas architect/PE." Never remove it.
 - Fix validation failures by editing the spec or layout and re-running; never

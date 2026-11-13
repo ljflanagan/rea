@@ -161,9 +161,9 @@ When the owner asks for a house "in this style":
 
 ## Budget
 
-The owner's standing budget (stated 2026-11-13): homes priced from **$140,000
-to $250,000**. Whether that is construction cost or sale price, and whether it
-includes the lot, is not yet settled; ask before sizing a house against it.
+The owner's standing budget (stated 2026-11-13): homes that **sell for
+$140,000 to $250,000, lot included**. [BUDGET-MODEL.md](BUDGET-MODEL.md) turns
+a sale price and lot cost into a construction budget and a house size.
 
 Perry's smallest Houston design is 1,500 sq ft at a $348,900 base price, lot
 included, so their whole catalogue sits above this budget. Designs for this

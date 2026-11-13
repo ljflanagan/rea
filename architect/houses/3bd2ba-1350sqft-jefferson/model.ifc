@@ -1,7 +1,7 @@
 ISO-10303-21;
 HEADER;
 FILE_DESCRIPTION(('ViewDefinition [ReferenceView_V1.2]','CONCEPT \X2\2014\X0\ NOT FOR CONSTRUCTION \X2\2014\X0\ requires validation by a licensed Texas architect/PE.'),'2;1');
-FILE_NAME('model.ifc','2026-11-13T21:41:49',(''),(''),'IfcOpenShell 0.9.0post1+b5e509b','housegen','');
+FILE_NAME('model.ifc','2026-11-13T21:48:36',(''),(''),'IfcOpenShell 0.9.0post1+b5e509b','housegen','');
 FILE_SCHEMA(('IFC4'));
 ENDSEC;
 DATA;

@@ -61,7 +61,10 @@ lot:
   flood: {zone: X}             # or {zone: AE, bfe_ft: 12.0, grade_ft: 10.5}
                                # Harris: {zone: AE, flood_500yr_ft: 98.0, grade_ft: 97.5}
 
-budget: {total_usd: 200000}    # reported as $/sq ft; the pipeline does not price
+budget:                        # see BUDGET-MODEL.md
+  sale_price_usd: 200000       # lot included
+  lot_cost_usd: 20000
+  build_cost_per_sqft: 110     # optional; with it the report judges the budget
 
 preferences:
   template: split_ranch        # only template so far
