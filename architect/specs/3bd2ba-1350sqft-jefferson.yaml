@@ -1,0 +1,29 @@
+# First test case. Every number here came from the owner; nothing is invented.
+project:
+  name: 3 Bed / 2 Bath Residence, Jefferson County
+  slug: jefferson
+
+program:
+  target_sqft: 1350
+  beds: 3
+  baths: 2
+  stories: 1
+
+lot:
+  width_ft: 60          # street frontage
+  depth_ft: 117         # 7,020 sq ft
+  setbacks_ft: {front: 25, side: 5, rear: 25}
+  flood: {zone: X}      # owner: not in a flood zone, no BFE applies
+
+budget:
+  total_usd: 200000
+
+preferences:
+  template: split_ranch
+  primary_side: left
+
+# Things the owner chose from options without a source document behind them.
+assumptions:
+  - Setbacks of 25 ft front / 5 ft side / 25 ft rear are a common pattern chosen by the owner; they have not been checked against the City of Beaumont zoning ordinance or the recorded plat.
+  - The lot is treated as outside the special flood hazard area on the owner's word; confirm against the current FEMA flood map.
+  - Lot dimensions of 60 x 117 ft are nominal; no survey was provided.

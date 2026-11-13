@@ -1,0 +1,7 @@
+numpy
+shapely>=2.0
+ezdxf>=1.1
+ifcopenshell>=0.8
+reportlab
+pillow
+pyyaml
