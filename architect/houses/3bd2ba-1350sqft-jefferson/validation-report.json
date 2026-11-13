@@ -4,7 +4,10 @@
   "wall_area": 126.9921875,
   "gross_area": 1350.0,
   "target": 1350.0,
-  "delta_pct": 0.0
+  "delta_pct": 0.0,
+  "unconditioned_area": 0.0,
+  "total_area": 1350.0,
+  "net_all": 1223.0078125
  },
  "site_rows": [
   [
@@ -44,7 +47,7 @@
   "PASS": 26,
   "WARN": 0,
   "FAIL": 0,
-  "INFO": 13
+  "INFO": 14
  },
  "checks": [
   {
@@ -56,7 +59,7 @@
   {
    "category": "Area",
    "status": "PASS",
-   "message": "Room areas reconcile: 1,223.0 sq ft of rooms + 127.0 sq ft of walls = 1,350.0 sq ft gross.",
+   "message": "Room areas reconcile: 1,223.0 sq ft of rooms + 127.0 sq ft of walls = 1,350.0 sq ft inside the outside face of the walls.",
    "ref": ""
   },
   {
@@ -200,8 +203,8 @@
   {
    "category": "Flood",
    "status": "INFO",
-   "message": "Spec states flood zone X (no base flood elevation applies). Finished floor is modelled 1'-0\" above grade. Confirm the zone on the current FEMA map and with the floodplain administrator before relying on this.",
-   "ref": "Standing baseline: BFE + 1 ft"
+   "message": "Spec states flood zone X, outside the special flood hazard area. Finished floor is modelled 1'-0\" above grade. Confirm the zone on the current FEMA map and with the floodplain administrator before relying on this.",
+   "ref": "Jefferson County / City of Beaumont, Texas: BFE + 1 ft"
   },
   {
    "category": "Windstorm",
@@ -226,6 +229,12 @@
    "status": "INFO",
    "message": "Roof-to-wall and wall-to-foundation connections, sheathing nailing, braced wall lines and uplift load path are not modelled.",
    "ref": "ICC 600-2020"
+  },
+  {
+   "category": "Code baseline",
+   "status": "INFO",
+   "message": "Code editions are the owner's standing baseline. A local news report says Beaumont City Council adopted the 2021 I-codes, 2020 NEC and ICC 600-2020 on April 4, 2023; local amendments were not reviewed, and unincorporated Jefferson County may differ from the City of Beaumont.",
+   "ref": "Jefferson County / City of Beaumont, Texas"
   },
   {
    "category": "Not modelled",

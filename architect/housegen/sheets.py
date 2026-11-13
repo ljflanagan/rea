@@ -10,6 +10,7 @@ from xml.sax.saxutils import escape
 
 from . import STAMP
 from .mesh import roof_geometry
+from .model import UNCONDITIONED
 from .plan2d import LAYERS, plan_extent, plan_primitives, site_primitives
 from .units import ft_in, sf
 
@@ -305,9 +306,10 @@ def plan_sheet(b, spec, lid, number):
     y = cv.meta_y
     x, inner = cv.tb_x, cv.tb_inner
     cv.text(x, y, "AREAS", 0.08, "start", bold=True); y -= 0.2
-    net = sum(r.area for r in b.rooms_on(lid))
-    for k, v in (("Gross (outside face of walls)", sf(b.gross_area(lid))),
-                 ("Net room area (sum of rooms)", sf(net)),
+    net = sum(r.area for r in b.rooms_on(lid) if r.kind not in UNCONDITIONED)
+    for k, v in (("Living area (outside face of walls)", sf(b.conditioned_area(lid))),
+                 ("Garage, porch, patio", sf(b.unconditioned_area(lid))),
+                 ("Net area of conditioned rooms", sf(net)),
                  ("Target", sf(spec["program"]["target_sqft"]))):
         cv.text(x, y, k, 0.08, "start"); cv.text(x + inner, y, v, 0.08, "end", bold=True); y -= 0.17
     y -= 0.12
@@ -371,9 +373,9 @@ def site_sheet(b, spec, report, number="A-001"):
     y = y_top - 0.27 - per * 0.19 - 0.1
     cv.line(x, y, x + colw, y, "#000", 0.6); y -= 0.2
     s = report["summary"]
-    rows = [("Net room area (sum of rooms)", sf(s["net_area"])),
-            ("Wall area in plan", sf(s["wall_area"])),
-            ("Gross conditioned area (outside face)", sf(s["gross_area"])),
+    rows = [("Net area of conditioned rooms", sf(s["net_area"])),
+            ("Garage, porch and patio (not living area)", sf(s["unconditioned_area"])),
+            ("Living area (outside face of walls)", sf(s["gross_area"])),
             ("Target", f"{sf(s['target'])}   ({s['delta_pct']:+.1f}%)")]
     for k, v in rows:
         cv.text(x, y, k, 0.09, "start"); cv.text(x + colw, y, v, 0.09, "end", bold=True); y -= 0.2

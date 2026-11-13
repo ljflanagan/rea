@@ -59,6 +59,7 @@ lot:
   depth_ft: 117
   setbacks_ft: {front: 25, side: 5, rear: 25}
   flood: {zone: X}             # or {zone: AE, bfe_ft: 12.0, grade_ft: 10.5}
+                               # Harris: {zone: AE, flood_500yr_ft: 98.0, grade_ft: 97.5}
 
 budget: {total_usd: 200000}    # reported as $/sq ft; the pipeline does not price
 
@@ -71,17 +72,29 @@ construction: {ext_wall_in: 6.0, int_wall_in: 4.5, ceiling_ft: 9.0}
 roof: {type: hip, pitch: 5, overhang_ft: 1.0}       # type: hip | gable
 foundation: {type: slab-on-grade, floor_above_grade_ft: 1.0}
 sheet: {size_in: [24, 18]}
-code: {}                       # overrides of the standing baseline
+code: {jurisdiction_id: jefferson}   # or harris; see "Code baselines"
 assumptions:
   - Setbacks were chosen by the owner and not checked against the zoning ordinance.
 ```
 
-### Standing code baseline
+### Code baselines
 
-Used unless a spec's `code:` block overrides it: Jefferson County / Beaumont,
-TX — 2021 IRC, 2021 IPC, 2021 IECC, 2020 NEC, ICC 600-2020; TDI/TWIA windstorm
-(WPI-8); finished floor 1 ft above base flood elevation. It lives in
-`architect/housegen/spec.py` (`BASELINE`).
+Each house follows the baseline of the place its lot is in. Set
+`code.jurisdiction_id`; Jefferson is the default. Baselines live in
+`architect/housegen/spec.py` (`BASELINES`). Every report prints the baseline's
+"to confirm" list, because none of this was checked against ordinance text.
+
+| | `jefferson` (default) | `harris` |
+|---|---|---|
+| Jurisdiction | Jefferson County / City of Beaumont | Harris County, unincorporated only |
+| Codes | 2021 IRC, IPC, IECC; 2020 NEC; ICC 600-2020 | 2021 IRC, 2021 IECC, 2020 NEC as placeholders; edition unconfirmed |
+| Windstorm | TDI/TWIA WPI-8 | WPI-8 only if the lot is in the designated area east of SH 146 |
+| Flood rule | Floor 1 ft above base flood elevation | Floor 2 ft above the 500-year flood elevation (reported; unconfirmed) |
+| Flood fields needed | `bfe_ft`, `grade_ft` | `flood_500yr_ft`, `grade_ft` |
+
+A lot inside a city in Harris County (Houston, Pasadena, Katy and others)
+follows that city's codes, which no baseline here covers. Ask the owner which
+city or unincorporated area the lot is in.
 
 ### Authoring a layout
 
@@ -109,8 +122,12 @@ layout:
   value on walls that run front-back.
 - `hinge: low | high` is the jamb at the lower or higher coordinate.
 - Room `type`: `bedroom`, `living`, `dining`, `kitchen`, `study`, `bath`,
-  `closet`, `hall`, `utility`, `mech`. Types drive the code checks.
-- Door `type`: `swing`, `slider`, `bifold`. Window `type`: `single_hung`,
+  `closet`, `hall`, `utility`, `mech`, and the unconditioned types `garage`,
+  `porch`, `patio`. Types drive the code checks. Garage, porch and patio sit
+  inside the footprint but are excluded from living area; `target_sqft` is
+  living area. Give a porch or patio its open side as a wide `cased` opening
+  in the exterior wall.
+- Door `type`: `swing`, `slider`, `bifold`, `overhead` (garage door). Window `type`: `single_hung`,
   `casement`, `slider`, `fixed`. `kind: cased` is a doorless opening.
 - Multi-storey: use `layout.levels: [{id, name, elevation, height, walls,
   rooms, openings}, ...]` and `layout.stairs: [{id, level, origin, direction,
@@ -156,6 +173,14 @@ From `REA-INVENTORY.md` and `CAPABILITIES.md`:
   defaults.
 - **Validation statuses**: PASS, WARN, FAIL, and INFO for things a concept
   model cannot decide. Code thresholds are screening values, not plan review.
+
+## Style
+
+The owner wants production "contemporary" homes in the manner of Perry Homes.
+[STYLE-PROFILE.md](STYLE-PROFILE.md) holds the program tables by lot width and
+size, the ten layout patterns to follow, and the copyright boundary: design
+original plans in the style, never copy one of their designs. No template
+exists for this style yet, so author the layout for each spec.
 
 ## Known limits
 

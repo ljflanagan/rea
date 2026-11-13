@@ -31,6 +31,8 @@ from shapely.ops import polygonize, unary_union
 TOL = 1e-6
 
 HABITABLE = {"bedroom", "living", "dining", "kitchen", "study", "family"}
+UNCONDITIONED = {"garage", "porch", "patio"}   # not counted as living area
+OUTDOOR = {"porch", "patio"}                   # roofed but open: counts as outside for light, air, egress
 
 
 class ModelError(Exception):
@@ -115,6 +117,7 @@ class Opening:
     swing_side: int = 1  # +1 leaf opens to the host's left, -1 to its right
     swing_into: Optional[str] = None
     rooms: tuple = ()    # (left room name | "exterior", right room name | "exterior")
+    outside: bool = False  # opens to the outdoors (directly, or onto a porch or patio)
 
     @property
     def ua(self):
@@ -130,7 +133,7 @@ class Opening:
 
     @property
     def exterior(self):
-        return "exterior" in self.rooms
+        return self.outside
 
 
 @dataclass
@@ -252,6 +255,20 @@ class Building:
     def gross_area(self, lid=None):
         lids = [lid] if lid else [l.id for l in self.levels]
         return sum(self.gross_polygon(l).area for l in lids)
+
+    def unconditioned_area(self, lid=None):
+        """Garage, porch and patio area, measured to the outside face of exterior walls."""
+        total = 0.0
+        for l in ([lid] if lid else [l.id for l in self.levels]):
+            t = max((w.thickness for w in self.walls_on(l) if w.kind == "ext"), default=0.0)
+            g = self.gross_polygon(l)
+            for r in self.rooms_on(l):
+                if r.kind in UNCONDITIONED:
+                    total += r.face.buffer(t / 2, join_style=2).intersection(g).area
+        return total
+
+    def conditioned_area(self, lid=None):
+        return self.gross_area(lid) - self.unconditioned_area(lid)
 
     def footprint(self):
         return self.gross_polygon(self.levels[0].id)
@@ -387,6 +404,8 @@ class Building:
             left = self.room_at(w.pt(o.center, probe), w.level)
             right = self.room_at(w.pt(o.center, -probe), w.level)
             o.rooms = (left, right)
+            outdoor = {"exterior"} | {r.name for r in self.rooms if r.kind in OUTDOOR}
+            o.outside = bool(outdoor & {left, right}) and not {left, right} <= outdoor
             if o.swing_into:
                 if o.swing_into == left:
                     o.swing_side = 1
@@ -424,6 +443,7 @@ class Building:
                 "setbacks": self.site.setbacks, "house_offset": list(self.site.offset),
                 "floor_above_grade": self.site.floor_above_grade, "flood": self.site.flood},
             "gross_area_sf": round(self.gross_area(), 2),
+            "conditioned_area_sf": round(self.conditioned_area(), 2),
         }
 
 

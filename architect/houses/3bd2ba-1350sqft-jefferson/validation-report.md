@@ -6,18 +6,19 @@ Generated from `model.json`. Code baseline: Jefferson County / City of Beaumont,
 
 ## Result
 
-**0 failures, 0 warnings, 26 checks passed.** 13 further items cannot be decided from a concept model and are listed for the design professional.
+**0 failures, 0 warnings, 26 checks passed.** 14 further items cannot be decided from a concept model and are listed for the design professional.
 
 ## Area against target
 
 | Measure | Sq ft |
 |---|---:|
 | Target | 1,350 |
-| Gross conditioned area (outside face of exterior walls) | 1,350.0 |
+| Conditioned (living) area, to outside face of exterior walls | 1,350.0 |
 | Difference from target | +0.0 (+0.0%) |
-| Sum of net room areas | 1,223.0 |
+| Sum of net areas of conditioned rooms | 1,223.0 |
+| Garage, porch and patio (excluded from living area) | 0.0 |
 | Area occupied by walls | 127.0 |
-| Rooms + walls | 1,350.0 |
+| Total inside outside face of walls | 1,350.0 |
 
 ## Rooms
 
@@ -37,7 +38,7 @@ Generated from `model.json`. Code baseline: Jefferson County / City of Beaumont,
 | Hall | hall | 21.4 | 3'-10" x 5'-8" |
 | Closet 2 | closet | 12.4 | 2'-2" x 5'-10" |
 | Closet 3 | closet | 12.4 | 2'-2" x 5'-10" |
-| **Total** | | **1,223.0** | |
+| **Total, all rooms** | | **1,223.0** | |
 
 Clear size is the largest rectangle that fits inside the room, so an L-shaped room has more area than its clear size implies.
 
@@ -61,7 +62,7 @@ Clear size is the largest rectangle that fits inside the room, so an L-shaped ro
 | Area | Finding | Reference |
 |---|---|---|
 | Model | All 14 named rooms are enclosed and every enclosed space is named. |  |
-| Area | Room areas reconcile: 1,223.0 sq ft of rooms + 127.0 sq ft of walls = 1,350.0 sq ft gross. |  |
+| Area | Room areas reconcile: 1,223.0 sq ft of rooms + 127.0 sq ft of walls = 1,350.0 sq ft inside the outside face of the walls. |  |
 | Area | Gross conditioned area 1,350 sq ft against the 1,350 sq ft target (+0.0%; tolerance 3%). Measured to the outside face of exterior walls. |  |
 | Program | 3 bedrooms modelled, 3 requested. |  |
 | Program | 2 bathrooms modelled, 2 requested. |  |
@@ -93,11 +94,12 @@ Clear size is the largest rectangle that fits inside the room, so an L-shaped ro
 |---|---|---|
 | Area | The rooms alone sum to 1,223 sq ft net (91% of the target). The target is treated as gross area, which is how house size is normally quoted; say so if you meant net room area. |  |
 | Site | Lot coverage 19.2% by walls, 21.4% under roof. No coverage limit was given in the spec; check the zoning district. |  |
-| Flood | Spec states flood zone X (no base flood elevation applies). Finished floor is modelled 1'-0" above grade. Confirm the zone on the current FEMA map and with the floodplain administrator before relying on this. | Standing baseline: BFE + 1 ft |
+| Flood | Spec states flood zone X, outside the special flood hazard area. Finished floor is modelled 1'-0" above grade. Confirm the zone on the current FEMA map and with the floodplain administrator before relying on this. | Jefferson County / City of Beaumont, Texas: BFE + 1 ft |
 | Windstorm | Geometry for the engineer's ICC 600 applicability check: 1 storey, 45'-0" x 30'-0" plan, hip roof at 5:12, 1'-0" overhangs, mean roof height 12'-11" above grade. | ICC 600-2020 |
 | Windstorm | 10 glazed openings totalling 169 sq ft (13% of exterior wall area), plus the exterior doors, need TDI-evaluated products rated for the site's design pressures, and impact protection if the lot is in the wind-borne debris region. The design wind speed and TDI zone for this address have not been established. | TDI / TWIA |
 | Windstorm | A WPI-8 certificate depends on inspections by a TDI-appointed engineer or inspector during construction (foundation, framing, roofing, openings). It cannot be established from drawings; arrange the inspections before work starts. | TDI WPI-8 |
 | Windstorm | Roof-to-wall and wall-to-foundation connections, sheathing nailing, braced wall lines and uplift load path are not modelled. | ICC 600-2020 |
+| Code baseline | Code editions are the owner's standing baseline. A local news report says Beaumont City Council adopted the 2021 I-codes, 2020 NEC and ICC 600-2020 on April 4, 2023; local amendments were not reviewed, and unincorporated Jefferson County may differ from the City of Beaumont. | Jefferson County / City of Beaumont, Texas |
 | Not modelled | Energy: insulation, window U-factor and SHGC, air sealing and duct design for climate zone 2A are not modelled. | 2021 IECC |
 | Not modelled | Electrical: service, panel, receptacle spacing, GFCI and AFCI protection, smoke and carbon-monoxide alarms are not modelled. | 2020 NEC; 2021 IRC R314, R315 |
 | Not modelled | Plumbing: fixture layout and clearances, water heater, drain-waste-vent and supply sizing are not modelled. Bathrooms are sized as rooms only. | 2021 IPC; 2021 IRC R307 |

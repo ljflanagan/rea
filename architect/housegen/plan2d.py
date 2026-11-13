@@ -82,7 +82,10 @@ def plan_primitives(b, lid, scale):
             for v in (-h, h):
                 P.append({"type": "line", "layer": "A-DOOR", "a": w.pt(o.ua, v), "b": w.pt(o.ub, v)})
         s = o.swing_side
-        if o.type == "slider":
+        if o.type == "overhead":
+            out = -1 if o.rooms[1] == "exterior" else 1
+            P.append({"type": "line", "layer": "A-ROOF-OTLN", "a": w.pt(o.ua, out * h * 0.5), "b": w.pt(o.ub, out * h * 0.5)})
+        elif o.type == "slider":
             mid, lap = o.center, 0.15
             P.append({"type": "line", "layer": "A-GLAZ", "a": w.pt(o.ua, 0.07), "b": w.pt(mid + lap, 0.07)})
             P.append({"type": "line", "layer": "A-GLAZ", "a": w.pt(mid - lap, -0.07), "b": w.pt(o.ub, -0.07)})

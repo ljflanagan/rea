@@ -21,7 +21,12 @@ python3 -m housegen design specs/<name>.yaml
   come from the owner. The pipeline refuses to run without them.
 - Standing code baseline unless a spec overrides it: Jefferson County /
   Beaumont, TX — 2021 IRC/IPC/IECC, 2020 NEC, ICC 600-2020, TDI/TWIA windstorm
-  (WPI-8), finished floor 1 ft above base flood elevation.
+  (WPI-8), finished floor 1 ft above base flood elevation. For a lot in
+  unincorporated Harris County set `code.jurisdiction_id: harris`; ask which
+  county and city the lot is in if the owner has not said.
+- Style: the owner wants homes in the manner of Perry Homes. Follow
+  [STYLE-PROFILE.md](STYLE-PROFILE.md): original layouts using its patterns,
+  never a copy of one of their plans.
 - Every sheet and file carries the stamp "CONCEPT — NOT FOR CONSTRUCTION —
   requires validation by a licensed Texas architect/PE." Never remove it.
 - Fix validation failures by editing the spec or layout and re-running; never

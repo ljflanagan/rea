@@ -366,20 +366,22 @@
 <text x="730.80" y="1070.64" font-size="10.00" text-anchor="middle" fill="#111">SCALE: 1/4" = 1'-0"</text>
 <text x="730.80" y="1019.70" font-size="8.50" text-anchor="middle" fill="#555">FRONT (STREET SIDE)</text>
 <text x="1447.20" y="252.09" font-size="8.00" text-anchor="start" fill="#111" font-weight="bold">AREAS</text>
-<text x="1447.20" y="266.49" font-size="8.00" text-anchor="start" fill="#111">Gross (outside face of walls)</text>
+<text x="1447.20" y="266.49" font-size="8.00" text-anchor="start" fill="#111">Living area (outside face of walls)</text>
 <text x="1684.80" y="266.49" font-size="8.00" text-anchor="end" fill="#111" font-weight="bold">1,350 SF</text>
-<text x="1447.20" y="278.73" font-size="8.00" text-anchor="start" fill="#111">Net room area (sum of rooms)</text>
-<text x="1684.80" y="278.73" font-size="8.00" text-anchor="end" fill="#111" font-weight="bold">1,223 SF</text>
-<text x="1447.20" y="290.97" font-size="8.00" text-anchor="start" fill="#111">Target</text>
-<text x="1684.80" y="290.97" font-size="8.00" text-anchor="end" fill="#111" font-weight="bold">1,350 SF</text>
-<text x="1447.20" y="311.85" font-size="8.00" text-anchor="start" fill="#111" font-weight="bold">PLAN NOTES</text>
-<text x="1447.20" y="325.96" font-size="7.20" text-anchor="start" fill="#333">Exterior dimensions are to the outside face of exterior</text>
-<text x="1447.20" y="334.77" font-size="7.20" text-anchor="start" fill="#333">walls and to the centerline of partitions and openings.</text>
-<text x="1447.20" y="347.19" font-size="7.20" text-anchor="start" fill="#333">Room sizes shown are clear dimensions between finished</text>
-<text x="1447.20" y="356.00" font-size="7.20" text-anchor="start" fill="#333">wall faces; areas are net.</text>
-<text x="1447.20" y="368.41" font-size="7.20" text-anchor="start" fill="#333">Opening tags read width then height in feet-inches: 3068 =</text>
-<text x="1447.20" y="377.23" font-size="7.20" text-anchor="start" fill="#333">3'-0" x 6'-8".</text>
-<text x="1447.20" y="389.64" font-size="7.20" text-anchor="start" fill="#333">Exterior walls 0'-6" nominal, partitions 0'-4 1/2"; plate</text>
-<text x="1447.20" y="398.45" font-size="7.20" text-anchor="start" fill="#333">height 9'-0".</text>
-<text x="1447.20" y="410.86" font-size="7.20" text-anchor="start" fill="#333">Dashed line is the roof edge above.</text>
+<text x="1447.20" y="278.73" font-size="8.00" text-anchor="start" fill="#111">Garage, porch, patio</text>
+<text x="1684.80" y="278.73" font-size="8.00" text-anchor="end" fill="#111" font-weight="bold">0 SF</text>
+<text x="1447.20" y="290.97" font-size="8.00" text-anchor="start" fill="#111">Net area of conditioned rooms</text>
+<text x="1684.80" y="290.97" font-size="8.00" text-anchor="end" fill="#111" font-weight="bold">1,223 SF</text>
+<text x="1447.20" y="303.21" font-size="8.00" text-anchor="start" fill="#111">Target</text>
+<text x="1684.80" y="303.21" font-size="8.00" text-anchor="end" fill="#111" font-weight="bold">1,350 SF</text>
+<text x="1447.20" y="324.09" font-size="8.00" text-anchor="start" fill="#111" font-weight="bold">PLAN NOTES</text>
+<text x="1447.20" y="338.20" font-size="7.20" text-anchor="start" fill="#333">Exterior dimensions are to the outside face of exterior</text>
+<text x="1447.20" y="347.01" font-size="7.20" text-anchor="start" fill="#333">walls and to the centerline of partitions and openings.</text>
+<text x="1447.20" y="359.43" font-size="7.20" text-anchor="start" fill="#333">Room sizes shown are clear dimensions between finished</text>
+<text x="1447.20" y="368.24" font-size="7.20" text-anchor="start" fill="#333">wall faces; areas are net.</text>
+<text x="1447.20" y="380.65" font-size="7.20" text-anchor="start" fill="#333">Opening tags read width then height in feet-inches: 3068 =</text>
+<text x="1447.20" y="389.47" font-size="7.20" text-anchor="start" fill="#333">3'-0" x 6'-8".</text>
+<text x="1447.20" y="401.88" font-size="7.20" text-anchor="start" fill="#333">Exterior walls 0'-6" nominal, partitions 0'-4 1/2"; plate</text>
+<text x="1447.20" y="410.69" font-size="7.20" text-anchor="start" fill="#333">height 9'-0".</text>
+<text x="1447.20" y="423.10" font-size="7.20" text-anchor="start" fill="#333">Dashed line is the roof edge above.</text>
 </svg>

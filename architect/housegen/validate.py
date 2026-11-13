@@ -14,7 +14,7 @@ from shapely.geometry import Point
 
 from . import STAMP
 from .mesh import roof_geometry
-from .model import HABITABLE
+from .model import HABITABLE, UNCONDITIONED
 from .units import ft_in, sf
 
 
@@ -50,26 +50,35 @@ def validate(b, spec):
         checks.append({"category": cat, "status": status, "message": message, "ref": ref})
 
     pr = spec["program"]
+    code = spec["code"]
     # ------------------------------------------------------------- model
     for status, msg in b.issues:
         add("Model", status, msg)
     if not b.issues:
         add("Model", "PASS", f"All {len(b.seeds)} named rooms are enclosed and every enclosed space is named.")
 
-    net = sum(r.area for r in b.rooms)
+    net_all = sum(r.area for r in b.rooms)
+    net = sum(r.area for r in b.rooms if r.kind not in UNCONDITIONED)
     walls = sum(b.wall_union(l.id).area for l in b.levels)
-    gross = b.gross_area()
+    total = b.gross_area()
+    uncond = b.unconditioned_area()
+    gross = total - uncond                 # conditioned (living) area
     target = float(pr["target_sqft"])
-    if abs(net + walls - gross) < 0.5:
-        add("Area", "PASS", f"Room areas reconcile: {net:,.1f} sq ft of rooms + {walls:,.1f} sq ft of walls "
-            f"= {gross:,.1f} sq ft gross.")
+    if abs(net_all + walls - total) < 0.5:
+        add("Area", "PASS", f"Room areas reconcile: {net_all:,.1f} sq ft of rooms + {walls:,.1f} sq ft of walls "
+            f"= {total:,.1f} sq ft inside the outside face of the walls.")
     else:
-        add("Area", "FAIL", f"Rooms ({net:,.1f}) plus walls ({walls:,.1f}) do not equal the gross area "
-            f"({gross:,.1f} sq ft); some floor area is unassigned.")
+        add("Area", "FAIL", f"Rooms ({net_all:,.1f}) plus walls ({walls:,.1f}) do not equal the total area "
+            f"({total:,.1f} sq ft); some floor area is unassigned.")
+    if uncond:
+        parts = ", ".join(f"{r.name} {r.area:,.0f}" for r in b.rooms if r.kind in UNCONDITIONED)
+        add("Area", "INFO", f"{uncond:,.0f} sq ft of garage, porch and patio is excluded from living area "
+            f"(net: {parts}).")
     d = (gross - target) / target * 100
     st = "PASS" if abs(d) <= 3 else "WARN" if abs(d) <= 5 else "FAIL"
     add("Area", st, f"Gross conditioned area {gross:,.0f} sq ft against the {target:,.0f} sq ft target "
-        f"({d:+.1f}%; tolerance 3%). Measured to the outside face of exterior walls.")
+        f"({d:+.1f}%; tolerance 3%). Measured to the outside face of exterior walls"
+        + (", excluding garage, porch and patio." if uncond else "."))
     add("Area", "INFO", f"The rooms alone sum to {net:,.0f} sq ft net ({net / target * 100:.0f}% of the target). "
         "The target is treated as gross area, which is how house size is normally quoted; "
         "say so if you meant net room area.")
@@ -116,7 +125,7 @@ def validate(b, spec):
                                 "joining at that point."); bad += 1
             if None in o.rooms:
                 add("Openings", "FAIL", f"{o.id} opens onto a space that is not a room."); bad += 1
-            if o.kind == "window" and "exterior" not in o.rooms:
+            if o.kind == "window" and not o.outside:
                 add("Openings", "WARN", f"Window {o.id} is in an interior wall."); bad += 1
             if o.kind == "door" and o.rooms[0] == o.rooms[1]:
                 add("Openings", "FAIL", f"Door {o.id} has the same room on both sides."); bad += 1
@@ -277,21 +286,23 @@ def validate(b, spec):
             "under roof. No coverage limit was given in the spec; check the zoning district.")
         fl = s.flood or {}
         zone = str(fl.get("zone", "")).upper()
-        fb = spec["code"]["flood_freeboard_ft"]
-        if fl.get("bfe_ft") is not None and fl.get("grade_ft") is not None:
+        fb = code["flood_freeboard_ft"]
+        basis = code.get("flood_basis", "bfe")
+        key, label = ("flood_500yr_ft", "0.2% (500-year) flood elevation") if basis == "500yr" else ("bfe_ft", "BFE")
+        rule = f"{code['jurisdiction']}: {label} + {fb:g} ft"
+        if fl.get(key) is not None and fl.get("grade_ft") is not None:
             ffe = fl["grade_ft"] + s.floor_above_grade
-            need = fl["bfe_ft"] + fb
+            need = fl[key] + fb
             add("Flood", "PASS" if ffe >= need - 1e-6 else "FAIL",
-                f"Finished floor at elevation {ffe:.2f} ft; required {need:.2f} ft (BFE {fl['bfe_ft']:.2f} + "
-                f"{fb:g} ft).", "Standing baseline: BFE + 1 ft")
+                f"Finished floor at elevation {ffe:.2f} ft; required {need:.2f} ft ({label} {fl[key]:.2f} + "
+                f"{fb:g} ft).", rule)
         elif zone in ("X", "C", "B"):
-            add("Flood", "INFO", f"Spec states flood zone {zone} (no base flood elevation applies). Finished floor "
+            add("Flood", "INFO", f"Spec states flood zone {zone}, outside the special flood hazard area. Finished floor "
                 f"is modelled {ft_in(s.floor_above_grade)} above grade. Confirm the zone on the current FEMA map "
-                "and with the floodplain administrator before relying on this.", "Standing baseline: BFE + 1 ft")
+                "and with the floodplain administrator before relying on this.", rule)
         else:
-            add("Flood", "FAIL", "No base flood elevation and grade elevation were given and the lot is not "
-                "stated to be outside the flood zone; the finished-floor height cannot be set.",
-                "Standing baseline: BFE + 1 ft")
+            add("Flood", "FAIL", f"The lot is not stated to be outside the flood zone, and the spec lacks "
+                f"lot.flood.{key} and lot.flood.grade_ft; the finished-floor height cannot be set.", rule)
         site_rows = [("Lot", f"{ft_in(s.lot_width, 1)} x {ft_in(s.lot_depth, 1)} = {sf(lot.area)}"),
                      ("Setbacks (front / side / rear)", " / ".join(ft_in(s.setbacks[k], 1) for k in ("front", "side", "rear"))),
                      ("Buildable area", f"{ft_in(buildable.bounds[2] - buildable.bounds[0], 1)} x "
@@ -332,11 +343,28 @@ def validate(b, spec):
         "exterior wall area), plus the exterior doors, need TDI-evaluated products rated for the site's design "
         "pressures, and impact protection if the lot is in the wind-borne debris region. The design wind speed "
         "and TDI zone for this address have not been established.", "TDI / TWIA")
+    if code.get("windstorm_applies") == "check":
+        add("Windstorm", "INFO", "Windstorm certification applies only if the lot is inside the TDI designated "
+            "catastrophe area. Confirm the address with TDI before deciding; the items below assume it may apply.",
+            "TDI / TWIA")
     add("Windstorm", "INFO", "A WPI-8 certificate depends on inspections by a TDI-appointed engineer or inspector "
         "during construction (foundation, framing, roofing, openings). It cannot be established from drawings; "
         "arrange the inspections before work starts.", "TDI WPI-8")
     add("Windstorm", "INFO", "Roof-to-wall and wall-to-foundation connections, sheathing nailing, braced wall "
         "lines and uplift load path are not modelled.", "ICC 600-2020")
+
+    garages = [r.name for r in b.rooms if r.kind == "garage"]
+    if garages:
+        beds = {r.name for r in b.rooms if r.kind == "bedroom"}
+        bad_doors = [o.id for o in b.openings if o.kind == "door" and set(o.rooms) & set(garages) and set(o.rooms) & beds]
+        add("IRC garage", "FAIL" if bad_doors else "PASS",
+            f"Door {', '.join(bad_doors)} opens from the garage directly into a bedroom." if bad_doors else
+            "No door opens from the garage directly into a bedroom.", "2021 IRC R302.5.1")
+        add("IRC garage", "INFO", "The door between garage and house must be solid or 20-minute rated, and the "
+            "garage side of shared walls and ceilings needs gypsum board separation. Not modelled.",
+            "2021 IRC R302.5, R302.6")
+    for item in code.get("to_confirm", []):
+        add("Code baseline", "INFO", item, code["jurisdiction"])
 
     # ------------------------------------------- not modelled, by code
     add("Not modelled", "INFO", "Energy: insulation, window U-factor and SHGC, air sealing and duct design for "
@@ -370,7 +398,8 @@ def validate(b, spec):
 
     counts = {k: sum(1 for c in checks if c["status"] == k) for k in ("PASS", "WARN", "FAIL", "INFO")}
     return {
-        "summary": {"net_area": net, "wall_area": walls, "gross_area": gross, "target": target, "delta_pct": d},
+        "summary": {"net_area": net, "wall_area": walls, "gross_area": gross, "target": target, "delta_pct": d,
+                    "unconditioned_area": uncond, "total_area": total, "net_all": net_all},
         "site_rows": site_rows, "counts": counts, "checks": checks, "quantities": qty,
         "rooms": [{"name": r.name, "kind": r.kind, "level": r.level, "area": round(r.area, 1),
                    "clear": [round(r.clear[0], 2), round(r.clear[1], 2)]} for r in b.rooms],
@@ -398,15 +427,16 @@ def report_markdown(b, spec, report, files):
          "## Area against target", "",
          "| Measure | Sq ft |", "|---|---:|",
          f"| Target | {s['target']:,.0f} |",
-         f"| Gross conditioned area (outside face of exterior walls) | {s['gross_area']:,.1f} |",
+         f"| Conditioned (living) area, to outside face of exterior walls | {s['gross_area']:,.1f} |",
          f"| Difference from target | {s['gross_area'] - s['target']:+,.1f} ({s['delta_pct']:+.1f}%) |",
-         f"| Sum of net room areas | {s['net_area']:,.1f} |",
+         f"| Sum of net areas of conditioned rooms | {s['net_area']:,.1f} |",
+         f"| Garage, porch and patio (excluded from living area) | {s['unconditioned_area']:,.1f} |",
          f"| Area occupied by walls | {s['wall_area']:,.1f} |",
-         f"| Rooms + walls | {s['net_area'] + s['wall_area']:,.1f} |", "",
+         f"| Total inside outside face of walls | {s['total_area']:,.1f} |", "",
          "## Rooms", "", "| Room | Type | Net area (sq ft) | Clear size |", "|---|---|---:|---|"]
     for r in sorted(b.rooms, key=lambda r: -r.area):
         L.append(f"| {r.name} | {r.kind} | {r.area:,.1f} | {ft_in(r.clear[0], 1)} x {ft_in(r.clear[1], 1)} |")
-    L.append(f"| **Total** | | **{s['net_area']:,.1f}** | |")
+    L.append(f"| **Total, all rooms** | | **{s['net_all']:,.1f}** | |")
     L += ["", "Clear size is the largest rectangle that fits inside the room, so an L-shaped room has more "
               "area than its clear size implies.", ""]
     if report["site_rows"]:
