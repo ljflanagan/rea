@@ -61,6 +61,7 @@ DEFAULTS = {
     "budget": {},
     "sheet": {"size_in": [24, 18]},
     "assumptions": [],
+    "standards": {},
 }
 
 REQUIRED = [

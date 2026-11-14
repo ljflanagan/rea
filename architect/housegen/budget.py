@@ -36,3 +36,18 @@ def print_table(prices, lot_cost, costs):
     print(f"{'Sale price':>11} {'Other':>9} {'Build budget':>13}  " + "  ".join(f"@${c:.0f}/sf" for c in costs))
     for p, other, lot, b, sizes in table(prices, lot_cost, costs):
         print(f"${p:>10,.0f} ${other:>8,.0f} ${b:>12,.0f}  " + "  ".join(f"{s:>7,.0f}" for s in sizes))
+
+
+# Cost weights relative to a square foot of living area. Assumptions, not data:
+# a garage has a slab, walls and roof but little finish; a porch or patio has
+# slab and roof only.
+GARAGE_WEIGHT, OUTDOOR_WEIGHT = 0.5, 0.3
+
+
+def effective_sqft(living, garage=0.0, outdoor=0.0):
+    return living + GARAGE_WEIGHT * garage + OUTDOOR_WEIGHT * outdoor
+
+
+def sale_price_for(living, garage, outdoor, cost_per_sqft, lot_cost, other_share=OTHER):
+    """Sale price needed to build this house at a given cost per sq ft of living area."""
+    return (lot_cost + cost_per_sqft * effective_sqft(living, garage, outdoor)) / (1 - other_share)

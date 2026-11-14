@@ -403,6 +403,49 @@ def validate(b, spec):
             st_ = "INFO"
             msg += " No build cost per sq ft was given, so this is not judged."
         add("Budget", st_, msg)
+    if bd.get("lot_cost_usd") is not None:
+        from .budget import GARAGE_WEIGHT, OUTDOOR_WEIGHT, effective_sqft, sale_price_for
+        gar = sum(r.face.area for r in b.rooms if r.kind == "garage")
+        out_ = sum(r.face.area for r in b.rooms if r.kind in ("porch", "patio"))
+        lo, hi = bd.get("build_cost_range_per_sqft", [100, 115])
+        p_lo, p_hi = (sale_price_for(gross, gar, out_, c, bd["lot_cost_usd"]) for c in (lo, hi))
+        add("Budget", "INFO", f"Indicative sale price ${p_lo:,.0f} to ${p_hi:,.0f}: {gross:,.0f} sq ft living, "
+            f"{gar:,.0f} sq ft garage counted at {GARAGE_WEIGHT:g}, {out_:,.0f} sq ft porch and patio at {OUTDOOR_WEIGHT:g} "
+            f"({effective_sqft(gross, gar, out_):,.0f} cost-weighted sq ft), built at ${lo:,.0f} to ${hi:,.0f} per sq ft, "
+            f"plus a ${bd['lot_cost_usd']:,.0f} lot and 21.8% for builder overhead, profit, sales and financing. "
+            "The build cost, the weights and the lot cost are unverified assumptions.")
+        report_price = (p_lo, p_hi)
+    else:
+        report_price = None
+    std = spec.get("standards") or {}
+    if std:
+        if std.get("min_beds"):
+            add("House standards", "PASS" if n_bed >= std["min_beds"] else "FAIL",
+                f"{n_bed} bedrooms; the standard is at least {std['min_beds']}.")
+        if std.get("min_baths"):
+            add("House standards", "PASS" if n_bath >= std["min_baths"] else "FAIL",
+                f"{n_bath} bathrooms; the standard is at least {std['min_baths']}.")
+        if std.get("min_garage_cars"):
+            gd = sum(o.width for o in b.openings if o.type == "overhead")
+            cars = int(gd // 8)
+            add("House standards", "PASS" if cars >= std["min_garage_cars"] else "FAIL",
+                f"Garage door width {ft_in(gd, 1)} serves {cars} car(s); the standard is at least {std['min_garage_cars']}.")
+        sw = std.get("signature_window_min_width_ft")
+        if sw:
+            def rear_big(kinds, primary=False):
+                for o in b.openings:
+                    w = b.wall(o.wall)
+                    if o.kind == "window" and w.id.endswith("ext-back") and o.width >= sw - 1e-6:
+                        for nm in o.rooms:
+                            r = b.room(nm) if nm not in (None, "exterior") else None
+                            if r and r.kind in kinds and (not primary or "primary" in r.name.lower()):
+                                return o, r
+                return None
+            for label, hit in (("primary bedroom", rear_big({"bedroom"}, True)), ("main living space", rear_big({"living", "kitchen", "dining", "family"}))):
+                add("House standards", "PASS" if hit else "FAIL",
+                    f"Signature window in the {label}: {hit[0].id}, {ft_in(hit[0].width, 1)} x {ft_in(hit[0].height, 1)}, "
+                    f"facing the backyard from {hit[1].name}." if hit else
+                    f"No rear-facing window at least {sw:g} ft wide in the {label}.")
     budget = bd.get("total_usd")
     if budget:
         add("Budget", "INFO", f"${budget:,.0f} over {gross:,.0f} sq ft is ${budget / gross:,.0f} per sq ft if the "
@@ -417,7 +460,7 @@ def validate(b, spec):
     return {
         "summary": {"net_area": net, "wall_area": walls, "gross_area": gross, "target": target, "delta_pct": d,
                     "unconditioned_area": uncond, "total_area": total, "net_all": net_all},
-        "site_rows": site_rows, "counts": counts, "checks": checks, "quantities": qty,
+        "site_rows": site_rows, "counts": counts, "checks": checks, "quantities": qty, "indicative_price": report_price,
         "rooms": [{"name": r.name, "kind": r.kind, "level": r.level, "area": round(r.area, 1),
                    "clear": [round(r.clear[0], 2), round(r.clear[1], 2)]} for r in b.rooms],
     }

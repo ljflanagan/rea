@@ -32,6 +32,14 @@ python3 -m housegen design specs/<name>.yaml
   (`python3 -m housegen budget --lot <cost>`) and put `sale_price_usd` and
   `lot_cost_usd` in the spec. Lot cost, build cost per sq ft and minimum lot
   size in that file are unverified; ask the owner for real figures.
+- House standards for First Flanagan Realty (the owner's company), stated
+  2026-11-14 and checked by `standards:` in a spec: at least 3 bedrooms and
+  2 baths (no 2 bed / 1 bath homes); at least a 2-car garage; a large modern
+  "signature" window in the primary bedroom facing the backyard and another
+  in the main living space facing the backyard; as much luxury feel as the
+  price allows. Exteriors need not be all brick. See the "First Flanagan
+  standards" section of STYLE-PROFILE.md and the plans in
+  `architect/houses/FIRST-FLANAGAN-PLANS.md`.
 - Every sheet and file carries the stamp "CONCEPT — NOT FOR CONSTRUCTION —
   requires validation by a licensed Texas architect/PE." Never remove it.
 - Fix validation failures by editing the spec or layout and re-running; never

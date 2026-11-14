@@ -159,6 +159,53 @@ When the owner asks for a house "in this style":
 | Curved stairs, stair openings in the floor above | Not built |
 | Brick, stone or other cladding in the 3D model | Not built; one wall colour |
 
+## First Flanagan standards
+
+Stated by the owner on 2026-11-14 for First Flanagan Realty. The aim: lower
+income households get a home that feels luxurious, at the lowest price that
+does not give up these points.
+
+**Required in every plan** (put under `standards:` in the spec so the report
+checks them):
+
+- At least 3 bedrooms and 2 baths. No 2 bed / 1 bath homes.
+- At least a 2-car garage.
+- A signature window: a large modern window in the primary bedroom looking
+  onto the backyard, and a second one in the main living space, also to the
+  backyard. Drawn as 8 ft wide by 6 ft tall fixed glass (minimum 6 ft wide).
+  A bedroom with a fixed signature window needs a second, operable window for
+  emergency escape and ventilation.
+
+**Luxury feel at low cost** (my suggestions, costs not verified):
+
+- 9 ft ceilings and the two signature windows do most of the work.
+- Open kitchen, dining and family room with a kitchen island and walk-in
+  pantry.
+- Primary suite at the rear with a walk-in closet and a double vanity.
+- A recessed, covered front porch and a real entry hall instead of a door
+  into the living room.
+- One flooring material through the living areas, tall baseboards, and a
+  consistent door and hardware style.
+
+**Exterior materials** (general guidance, not priced):
+
+| Material | Fit for this use |
+|---|---|
+| Fiber-cement lap or board-and-batten siding | Recommended main cladding: resists rot, termites and fire, holds paint, suits a humid coastal climate |
+| Brick or stone | As an accent only: a front wainscot or entry surround gives the look without the cost of full brick |
+| Engineered wood siding | Cheaper, looks good; needs careful detailing against moisture |
+| Vinyl siding | Cheapest; weaker in high wind and reads as low-end |
+| Stucco | Risky in a humid climate if detailing is poor |
+| Roof | Wind-rated architectural asphalt shingles for cost; standing-seam metal lasts longer but costs more |
+
+All cladding and roofing in the windstorm area must be products evaluated for
+TDI certification. Exterior materials are not yet shown in the 3D model.
+
+**Price floor:** with a 2-car garage the cheapest plan (Plan 1, 1,241 sq ft)
+comes out at roughly $210,000 to $237,000 under the assumptions in
+BUDGET-MODEL.md. Selling it at $200,000 would need construction at about
+$94 per sq ft. The $140,000 price point does not work with these standards.
+
 ## Budget
 
 The owner's standing budget (stated 2026-11-13): homes that **sell for
