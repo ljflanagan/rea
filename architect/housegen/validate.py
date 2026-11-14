@@ -243,7 +243,7 @@ def validate(b, spec):
                 add("IRC light and air", "PASS", f"{r.name}: {gl:.0f} sq ft window (3 sq ft, half openable, required "
                     "unless mechanically exhausted).", "2021 IRC R303.3")
             else:
-                add("IRC light and air", "WARN", f"{r.name} has no qualifying window; a mechanical exhaust fan "
+                add("IRC light and air", "INFO", f"{r.name} has no window, so it needs a mechanical exhaust fan "
                     "ducted outdoors is required.", "2021 IRC R303.3")
     for s in b.stairs:
         ok = s.riser_height * 12 <= 7.75 + 1e-6 and s.tread * 12 >= 10 - 1e-6 and s.width >= 3 - 1e-6

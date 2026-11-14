@@ -1,0 +1,401 @@
+{
+ "summary": {
+  "net_area": 754.2890625,
+  "wall_area": 85.7109375,
+  "gross_area": 840.0,
+  "target": 840.0,
+  "delta_pct": 0.0,
+  "unconditioned_area": 0.0,
+  "total_area": 840.0,
+  "net_all": 754.2890625
+ },
+ "site_rows": [
+  [
+   "Lot",
+   "50'-0\" x 100'-0\" = 5,000 SF"
+  ],
+  [
+   "Setbacks (front / side / rear)",
+   "25'-0\" / 5'-0\" / 25'-0\""
+  ],
+  [
+   "Buildable area",
+   "40'-0\" x 50'-0\""
+  ],
+  [
+   "House footprint",
+   "28'-0\" x 30'-0\""
+  ],
+  [
+   "Yards: front / rear",
+   "26'-0\" / 44'-0\""
+  ],
+  [
+   "Yards: left / right",
+   "11'-0\" / 11'-0\""
+  ],
+  [
+   "Lot coverage",
+   "16.8%"
+  ],
+  [
+   "Finished floor above grade",
+   "1'-0\""
+  ]
+ ],
+ "counts": {
+  "PASS": 23,
+  "WARN": 0,
+  "FAIL": 0,
+  "INFO": 13
+ },
+ "checks": [
+  {
+   "category": "Model",
+   "status": "PASS",
+   "message": "All 9 named rooms are enclosed and every enclosed space is named.",
+   "ref": ""
+  },
+  {
+   "category": "Area",
+   "status": "PASS",
+   "message": "Room areas reconcile: 754.3 sq ft of rooms + 85.7 sq ft of walls = 840.0 sq ft inside the outside face of the walls.",
+   "ref": ""
+  },
+  {
+   "category": "Area",
+   "status": "PASS",
+   "message": "Gross conditioned area 840 sq ft against the 840 sq ft target (+0.0%; tolerance 3%). Measured to the outside face of exterior walls.",
+   "ref": ""
+  },
+  {
+   "category": "Area",
+   "status": "INFO",
+   "message": "The rooms alone sum to 754 sq ft net (90% of the target). The target is treated as gross area, which is how house size is normally quoted; say so if you meant net room area.",
+   "ref": ""
+  },
+  {
+   "category": "Program",
+   "status": "PASS",
+   "message": "2 bedrooms modelled, 2 requested.",
+   "ref": ""
+  },
+  {
+   "category": "Program",
+   "status": "PASS",
+   "message": "1 bathrooms modelled, 1 requested.",
+   "ref": ""
+  },
+  {
+   "category": "Walls",
+   "status": "PASS",
+   "message": "Exterior walls form a closed loop; all 15 walls are joined at both ends with no overlaps.",
+   "ref": ""
+  },
+  {
+   "category": "Openings",
+   "status": "PASS",
+   "message": "All 15 openings sit inside their host wall, clear of wall junctions and of each other, with header room above.",
+   "ref": ""
+  },
+  {
+   "category": "Circulation",
+   "status": "PASS",
+   "message": "Every room can be reached from an exterior door.",
+   "ref": ""
+  },
+  {
+   "category": "IRC rooms",
+   "status": "PASS",
+   "message": "Every habitable room is at least 70 sq ft and 7 ft in its short direction.",
+   "ref": "2021 IRC R304"
+  },
+  {
+   "category": "IRC rooms",
+   "status": "PASS",
+   "message": "Ceiling height 8'-0\" meets the 7 ft minimum.",
+   "ref": "2021 IRC R305.1"
+  },
+  {
+   "category": "IRC egress",
+   "status": "PASS",
+   "message": "Hall is 3'-9 3/4\" clear (3 ft minimum).",
+   "ref": "2021 IRC R311.6"
+  },
+  {
+   "category": "IRC egress",
+   "status": "PASS",
+   "message": "Egress door: D01, side-hinged, 3'-0\" x 6'-8\".",
+   "ref": "2021 IRC R311.2"
+  },
+  {
+   "category": "IRC egress",
+   "status": "PASS",
+   "message": "Bedroom 1: N05 (3'-0\" x 6'-0\" single hung, sill 1'-0\") gives an estimated 6.9 sq ft clear opening (33 x 30 in.); 5.7 sq ft, 20 in. wide, 24 in. high, sill 44 in. max required.",
+   "ref": "2021 IRC R310.2"
+  },
+  {
+   "category": "IRC egress",
+   "status": "PASS",
+   "message": "Bedroom 2: N06 (3'-0\" x 6'-0\" single hung, sill 1'-0\") gives an estimated 6.9 sq ft clear opening (33 x 30 in.); 5.7 sq ft, 20 in. wide, 24 in. high, sill 44 in. max required.",
+   "ref": "2021 IRC R310.2"
+  },
+  {
+   "category": "IRC light and air",
+   "status": "PASS",
+   "message": "Bedroom 1: 18 sq ft glazing (15.8% of 114 sq ft floor; 8% required), 9 sq ft openable (7.9%; 4% required).",
+   "ref": "2021 IRC R303.1"
+  },
+  {
+   "category": "IRC light and air",
+   "status": "PASS",
+   "message": "Bedroom 2: 18 sq ft glazing (15.8% of 114 sq ft floor; 8% required), 9 sq ft openable (7.9%; 4% required).",
+   "ref": "2021 IRC R303.1"
+  },
+  {
+   "category": "IRC light and air",
+   "status": "PASS",
+   "message": "Living + Kitchen + Dining: 54 sq ft glazing (12.8% of 422 sq ft floor; 8% required), 27 sq ft openable (6.4%; 4% required).",
+   "ref": "2021 IRC R303.1"
+  },
+  {
+   "category": "IRC light and air",
+   "status": "PASS",
+   "message": "Bath: 6 sq ft window (3 sq ft, half openable, required unless mechanically exhausted).",
+   "ref": "2021 IRC R303.3"
+  },
+  {
+   "category": "Site",
+   "status": "PASS",
+   "message": "Walls are inside all setbacks: front 26'-0\" (min 25'-0\"), rear 44'-0\" (min 25'-0\"), left side 11'-0\" (min 5'-0\"), right side 11'-0\" (min 5'-0\").",
+   "ref": ""
+  },
+  {
+   "category": "IRC fire separation",
+   "status": "PASS",
+   "message": "Walls are 11'-0\" and eaves 10'-0\" from the nearest side lot line; 5 ft or more needs no fire-resistance rating.",
+   "ref": "2021 IRC R302.1"
+  },
+  {
+   "category": "Site",
+   "status": "INFO",
+   "message": "Lot coverage 16.8% by walls, 19.2% under roof. No coverage limit was given in the spec; check the zoning district.",
+   "ref": ""
+  },
+  {
+   "category": "Flood",
+   "status": "INFO",
+   "message": "Spec states flood zone X, outside the special flood hazard area. Finished floor is modelled 1'-0\" above grade. Confirm the zone on the current FEMA map and with the floodplain administrator before relying on this.",
+   "ref": "Jefferson County / City of Beaumont, Texas: BFE + 1 ft"
+  },
+  {
+   "category": "Windstorm",
+   "status": "INFO",
+   "message": "Geometry for the engineer's ICC 600 applicability check: 1 storey, 28'-0\" x 30'-0\" plan, hip roof at 5:12, 1'-0\" overhangs, mean roof height 11'-8\" above grade.",
+   "ref": "ICC 600-2020"
+  },
+  {
+   "category": "Windstorm",
+   "status": "INFO",
+   "message": "7 glazed openings totalling 96 sq ft (11% of exterior wall area), plus the exterior doors, need TDI-evaluated products rated for the site's design pressures, and impact protection if the lot is in the wind-borne debris region. The design wind speed and TDI zone for this address have not been established.",
+   "ref": "TDI / TWIA"
+  },
+  {
+   "category": "Windstorm",
+   "status": "INFO",
+   "message": "A WPI-8 certificate depends on inspections by a TDI-appointed engineer or inspector during construction (foundation, framing, roofing, openings). It cannot be established from drawings; arrange the inspections before work starts.",
+   "ref": "TDI WPI-8"
+  },
+  {
+   "category": "Windstorm",
+   "status": "INFO",
+   "message": "Roof-to-wall and wall-to-foundation connections, sheathing nailing, braced wall lines and uplift load path are not modelled.",
+   "ref": "ICC 600-2020"
+  },
+  {
+   "category": "Code baseline",
+   "status": "INFO",
+   "message": "Code editions are the owner's standing baseline. A local news report says Beaumont City Council adopted the 2021 I-codes, 2020 NEC and ICC 600-2020 on April 4, 2023; local amendments were not reviewed, and unincorporated Jefferson County may differ from the City of Beaumont.",
+   "ref": "Jefferson County / City of Beaumont, Texas"
+  },
+  {
+   "category": "Not modelled",
+   "status": "INFO",
+   "message": "Energy: insulation, window U-factor and SHGC, air sealing and duct design for climate zone 2A are not modelled.",
+   "ref": "2021 IECC"
+  },
+  {
+   "category": "Not modelled",
+   "status": "INFO",
+   "message": "Electrical: service, panel, receptacle spacing, GFCI and AFCI protection, smoke and carbon-monoxide alarms are not modelled.",
+   "ref": "2020 NEC; 2021 IRC R314, R315"
+  },
+  {
+   "category": "Not modelled",
+   "status": "INFO",
+   "message": "Plumbing: fixture layout and clearances, water heater, drain-waste-vent and supply sizing are not modelled. Bathrooms are sized as rooms only.",
+   "ref": "2021 IPC; 2021 IRC R307"
+  },
+  {
+   "category": "Not modelled",
+   "status": "INFO",
+   "message": "Structure: foundation, framing, headers, roof trusses and soils are not designed. Jefferson County clay soils normally call for an engineered slab.",
+   "ref": "2021 IRC ch. 4-8"
+  },
+  {
+   "category": "Budget",
+   "status": "INFO",
+   "message": "Sale price $140,000 less the $20,000 lot and 21.8% for builder overhead, profit, sales and financing (NAHB 2024 national shares) leaves $89,480 to build with: $107 per sq ft of living area for this 840 sq ft house, with garage, porch, patio and site work paid from the same sum. No build cost per sq ft was given, so this is not judged.",
+   "ref": ""
+  },
+  {
+   "category": "Outputs agree",
+   "status": "PASS",
+   "message": "DXF re-read: room boundaries enclose 754.3 sq ft (model 754.3); 27 dimension entities.",
+   "ref": ""
+  },
+  {
+   "category": "Outputs agree",
+   "status": "PASS",
+   "message": "IFC re-read (IFC4): 15 walls, 15 openings, 8 doors, 7 windows, 9 spaces; space areas total 754.3 sq ft (model 754.3); wall volume with openings cut 571.9 cu ft (model 571.9).",
+   "ref": ""
+  },
+  {
+   "category": "Outputs agree",
+   "status": "PASS",
+   "message": "glTF re-read: 40 nodes, 1,202 triangles; walls span 28.00 x 30.00 ft (model 28.00 x 30.00).",
+   "ref": ""
+  }
+ ],
+ "quantities": [
+  [
+   "Gross floor area",
+   "840 SF"
+  ],
+  [
+   "Slab / footprint area",
+   "840 SF"
+  ],
+  [
+   "Roof surface area",
+   "1,040 SF"
+  ],
+  [
+   "Exterior wall length",
+   "114 ft"
+  ],
+  [
+   "Interior partition length",
+   "77 ft"
+  ],
+  [
+   "Exterior doors",
+   "2"
+  ],
+  [
+   "Interior doors",
+   "6"
+  ],
+  [
+   "Windows",
+   "7 (96 sq ft glazing incl. glazed doors)"
+  ],
+  [
+   "Bathrooms / wet rooms",
+   "1 baths + kitchen + laundry"
+  ]
+ ],
+ "rooms": [
+  {
+   "name": "Closet 1",
+   "kind": "closet",
+   "level": "L1",
+   "area": 11.3,
+   "clear": [
+    2.12,
+    5.31
+   ]
+  },
+  {
+   "name": "Bedroom 1",
+   "kind": "bedroom",
+   "level": "L1",
+   "area": 113.8,
+   "clear": [
+    8.81,
+    11.31
+   ]
+  },
+  {
+   "name": "Living",
+   "kind": "living",
+   "level": "L1",
+   "area": 238.1,
+   "clear": [
+    15.31,
+    15.5
+   ]
+  },
+  {
+   "name": "Hall",
+   "kind": "hall",
+   "level": "L1",
+   "area": 21.4,
+   "clear": [
+    3.81,
+    5.62
+   ]
+  },
+  {
+   "name": "Bath",
+   "kind": "bath",
+   "level": "L1",
+   "area": 41.1,
+   "clear": [
+    7.31,
+    5.62
+   ]
+  },
+  {
+   "name": "Kitchen + Dining",
+   "kind": "kitchen",
+   "level": "L1",
+   "area": 183.6,
+   "clear": [
+    10.31,
+    13.5
+   ]
+  },
+  {
+   "name": "Bedroom 2",
+   "kind": "bedroom",
+   "level": "L1",
+   "area": 113.8,
+   "clear": [
+    8.81,
+    11.31
+   ]
+  },
+  {
+   "name": "Closet 2",
+   "kind": "closet",
+   "level": "L1",
+   "area": 11.3,
+   "clear": [
+    2.12,
+    5.31
+   ]
+  },
+  {
+   "name": "Utility",
+   "kind": "utility",
+   "level": "L1",
+   "area": 19.9,
+   "clear": [
+    4.62,
+    4.31
+   ]
+  }
+ ],
+ "notice": "CONCEPT \u2014 NOT FOR CONSTRUCTION \u2014 requires validation by a licensed Texas architect/PE."
+}

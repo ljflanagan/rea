@@ -146,7 +146,7 @@ def plan_primitives(b, lid, scale):
         big = min(cw, cd) >= 8.0
         h1 = TEXT_ROOM if big else TEXT_SMALL
         name = r.name.upper()
-        est = 0.62 * h1 * len(name) / scale          # label width in feet
+        est = 0.85 * h1 * len(name) / scale          # label width in feet
         rot = 90 if (est > cw - 0.3 and cd > cw) else 0
         lines = [(name, h1, True), (sf(r.area), TEXT_SMALL, False)]
         if big:

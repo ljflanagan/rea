@@ -1,0 +1,1307 @@
+{
+ "name": "Plan 250-B: 4 Bed / 2 Bath",
+ "units": "feet",
+ "meta": {
+  "footprint": {
+   "width": 38.0,
+   "depth": 44.0
+  },
+  "layout_source": "explicit"
+ },
+ "levels": [
+  {
+   "id": "L1",
+   "name": "First Floor",
+   "elevation": 0.0,
+   "height": 9.0
+  }
+ ],
+ "walls": [
+  {
+   "id": "ext-front",
+   "level": "L1",
+   "kind": "ext",
+   "a": [
+    0.25,
+    0.25
+   ],
+   "b": [
+    37.75,
+    0.25
+   ],
+   "thickness": 0.5,
+   "height": 9.0,
+   "join_a": "corner-through",
+   "join_b": "corner-through",
+   "adj_a": 0.25,
+   "adj_b": 0.25
+  },
+  {
+   "id": "ext-right",
+   "level": "L1",
+   "kind": "ext",
+   "a": [
+    37.75,
+    0.25
+   ],
+   "b": [
+    37.75,
+    43.75
+   ],
+   "thickness": 0.5,
+   "height": 9.0,
+   "join_a": "corner-butt",
+   "join_b": "corner-butt",
+   "adj_a": -0.25,
+   "adj_b": -0.25
+  },
+  {
+   "id": "ext-back",
+   "level": "L1",
+   "kind": "ext",
+   "a": [
+    37.75,
+    43.75
+   ],
+   "b": [
+    0.25,
+    43.75
+   ],
+   "thickness": 0.5,
+   "height": 9.0,
+   "join_a": "corner-through",
+   "join_b": "corner-through",
+   "adj_a": 0.25,
+   "adj_b": 0.25
+  },
+  {
+   "id": "ext-left",
+   "level": "L1",
+   "kind": "ext",
+   "a": [
+    0.25,
+    43.75
+   ],
+   "b": [
+    0.25,
+    0.25
+   ],
+   "thickness": 0.5,
+   "height": 9.0,
+   "join_a": "corner-butt",
+   "join_b": "corner-butt",
+   "adj_a": -0.25,
+   "adj_b": -0.25
+  },
+  {
+   "id": "Y16a",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    0.25,
+    16.0
+   ],
+   "b": [
+    17.0,
+    16.0
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "tee",
+   "join_b": "corner-through",
+   "adj_a": -0.25,
+   "adj_b": 0.1875
+  },
+  {
+   "id": "Y16b",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    21.0,
+    16.0
+   ],
+   "b": [
+    37.75,
+    16.0
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "corner-through",
+   "join_b": "tee",
+   "adj_a": 0.1875,
+   "adj_b": -0.25
+  },
+  {
+   "id": "S-HALL",
+   "level": "L1",
+   "kind": "sep",
+   "a": [
+    17.0,
+    16.0
+   ],
+   "b": [
+    21.0,
+    16.0
+   ],
+   "thickness": 0.0,
+   "height": 9.0,
+   "join_a": "free",
+   "join_b": "free",
+   "adj_a": 0.0,
+   "adj_b": 0.0
+  },
+  {
+   "id": "S-LK",
+   "level": "L1",
+   "kind": "sep",
+   "a": [
+    21.0,
+    0.25
+   ],
+   "b": [
+    21.0,
+    16.0
+   ],
+   "thickness": 0.0,
+   "height": 9.0,
+   "join_a": "free",
+   "join_b": "free",
+   "adj_a": 0.0,
+   "adj_b": 0.0
+  },
+  {
+   "id": "HW",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    17.0,
+    16.0
+   ],
+   "b": [
+    17.0,
+    43.75
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "corner-butt",
+   "join_b": "tee",
+   "adj_a": -0.1875,
+   "adj_b": -0.25
+  },
+  {
+   "id": "HE",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    21.0,
+    16.0
+   ],
+   "b": [
+    21.0,
+    43.75
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "corner-butt",
+   "join_b": "tee",
+   "adj_a": -0.1875,
+   "adj_b": -0.25
+  },
+  {
+   "id": "L27",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    0.25,
+    27.0
+   ],
+   "b": [
+    17.0,
+    27.0
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "tee",
+   "join_b": "tee",
+   "adj_a": -0.25,
+   "adj_b": -0.1875
+  },
+  {
+   "id": "L33",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    0.25,
+    33.0
+   ],
+   "b": [
+    17.0,
+    33.0
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "tee",
+   "join_b": "tee",
+   "adj_a": -0.25,
+   "adj_b": -0.1875
+  },
+  {
+   "id": "LX7",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    7.0,
+    27.0
+   ],
+   "b": [
+    7.0,
+    33.0
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "tee",
+   "join_b": "tee",
+   "adj_a": -0.1875,
+   "adj_b": -0.1875
+  },
+  {
+   "id": "L30",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    0.25,
+    30.0
+   ],
+   "b": [
+    7.0,
+    30.0
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "tee",
+   "join_b": "tee",
+   "adj_a": -0.25,
+   "adj_b": -0.1875
+  },
+  {
+   "id": "R27",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    21.0,
+    27.0
+   ],
+   "b": [
+    37.75,
+    27.0
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "tee",
+   "join_b": "tee",
+   "adj_a": -0.1875,
+   "adj_b": -0.25
+  },
+  {
+   "id": "R33",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    21.0,
+    33.0
+   ],
+   "b": [
+    37.75,
+    33.0
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "tee",
+   "join_b": "tee",
+   "adj_a": -0.1875,
+   "adj_b": -0.25
+  },
+  {
+   "id": "RX29",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    29.0,
+    27.0
+   ],
+   "b": [
+    29.0,
+    33.0
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "tee",
+   "join_b": "tee",
+   "adj_a": -0.1875,
+   "adj_b": -0.1875
+  },
+  {
+   "id": "UE",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    26.0,
+    16.0
+   ],
+   "b": [
+    26.0,
+    21.5
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "tee",
+   "join_b": "corner-butt",
+   "adj_a": -0.1875,
+   "adj_b": -0.1875
+  },
+  {
+   "id": "US",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    21.0,
+    21.5
+   ],
+   "b": [
+    26.0,
+    21.5
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "tee",
+   "join_b": "corner-through",
+   "adj_a": -0.1875,
+   "adj_b": 0.1875
+  },
+  {
+   "id": "CLS",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    26.0,
+    18.5
+   ],
+   "b": [
+    31.5,
+    18.5
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "tee",
+   "join_b": "corner-through",
+   "adj_a": -0.1875,
+   "adj_b": 0.1875
+  },
+  {
+   "id": "CLE",
+   "level": "L1",
+   "kind": "int",
+   "a": [
+    31.5,
+    16.0
+   ],
+   "b": [
+    31.5,
+    18.5
+   ],
+   "thickness": 0.375,
+   "height": 9.0,
+   "join_a": "tee",
+   "join_b": "corner-butt",
+   "adj_a": -0.1875,
+   "adj_b": -0.1875
+  }
+ ],
+ "openings": [
+  {
+   "id": "D01",
+   "wall": "ext-front",
+   "kind": "door",
+   "type": "swing",
+   "center": 17.75,
+   "width": 3.0,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "b",
+   "swing_side": 1,
+   "between": [
+    "Living",
+    "exterior"
+   ]
+  },
+  {
+   "id": "D02",
+   "wall": "ext-right",
+   "kind": "door",
+   "type": "swing",
+   "center": 11.75,
+   "width": 3.0,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Kitchen + Dining",
+    "exterior"
+   ]
+  },
+  {
+   "id": "D03",
+   "wall": "ext-back",
+   "kind": "door",
+   "type": "swing",
+   "center": 18.75,
+   "width": 3.0,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "b",
+   "swing_side": 1,
+   "between": [
+    "Hall",
+    "exterior"
+   ]
+  },
+  {
+   "id": "D04",
+   "wall": "HW",
+   "kind": "door",
+   "type": "swing",
+   "center": 8.5,
+   "width": 2.6667,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "b",
+   "swing_side": 1,
+   "between": [
+    "Bedroom 2",
+    "Hall"
+   ]
+  },
+  {
+   "id": "D05",
+   "wall": "HW",
+   "kind": "door",
+   "type": "swing",
+   "center": 19.5,
+   "width": 2.6667,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Bedroom 3",
+    "Hall"
+   ]
+  },
+  {
+   "id": "D06",
+   "wall": "HW",
+   "kind": "door",
+   "type": "swing",
+   "center": 14.0,
+   "width": 2.5,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Bath 2",
+    "Hall"
+   ]
+  },
+  {
+   "id": "D07",
+   "wall": "L27",
+   "kind": "door",
+   "type": "swing",
+   "center": 3.25,
+   "width": 2.3333,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "a",
+   "swing_side": -1,
+   "between": [
+    "Closet 2",
+    "Bedroom 2"
+   ]
+  },
+  {
+   "id": "D08",
+   "wall": "L33",
+   "kind": "door",
+   "type": "swing",
+   "center": 3.25,
+   "width": 2.3333,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Bedroom 3",
+    "Closet 3"
+   ]
+  },
+  {
+   "id": "D09",
+   "wall": "HE",
+   "kind": "door",
+   "type": "swing",
+   "center": 8.25,
+   "width": 2.6667,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "b",
+   "swing_side": -1,
+   "between": [
+    "Hall",
+    "Bedroom 4"
+   ]
+  },
+  {
+   "id": "D10",
+   "wall": "HE",
+   "kind": "door",
+   "type": "swing",
+   "center": 19.5,
+   "width": 2.6667,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "a",
+   "swing_side": -1,
+   "between": [
+    "Hall",
+    "Primary Bedroom"
+   ]
+  },
+  {
+   "id": "D11",
+   "wall": "Y16b",
+   "kind": "door",
+   "type": "swing",
+   "center": 2.5,
+   "width": 2.5,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Utility",
+    "Kitchen + Dining"
+   ]
+  },
+  {
+   "id": "D12",
+   "wall": "CLS",
+   "kind": "door",
+   "type": "bifold",
+   "center": 2.75,
+   "width": 4.0,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Bedroom 4",
+    "Closet 4"
+   ]
+  },
+  {
+   "id": "D13",
+   "wall": "R33",
+   "kind": "door",
+   "type": "swing",
+   "center": 4.0,
+   "width": 2.3333,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "a",
+   "swing_side": -1,
+   "between": [
+    "Primary Bedroom",
+    "Primary Closet"
+   ]
+  },
+  {
+   "id": "D14",
+   "wall": "R33",
+   "kind": "door",
+   "type": "swing",
+   "center": 12.5,
+   "width": 2.5,
+   "height": 6.6667,
+   "sill": 0.0,
+   "hinge": "a",
+   "swing_side": -1,
+   "between": [
+    "Primary Bedroom",
+    "Primary Bath"
+   ]
+  },
+  {
+   "id": "N01",
+   "wall": "ext-front",
+   "kind": "window",
+   "type": "single_hung",
+   "center": 5.75,
+   "width": 3.0,
+   "height": 6.0,
+   "sill": 1.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Living",
+    "exterior"
+   ]
+  },
+  {
+   "id": "N02",
+   "wall": "ext-front",
+   "kind": "window",
+   "type": "single_hung",
+   "center": 11.75,
+   "width": 3.0,
+   "height": 6.0,
+   "sill": 1.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Living",
+    "exterior"
+   ]
+  },
+  {
+   "id": "N03",
+   "wall": "ext-left",
+   "kind": "window",
+   "type": "single_hung",
+   "center": 35.75,
+   "width": 3.0,
+   "height": 6.0,
+   "sill": 1.0,
+   "hinge": "b",
+   "swing_side": 1,
+   "between": [
+    "Living",
+    "exterior"
+   ]
+  },
+  {
+   "id": "N04",
+   "wall": "ext-front",
+   "kind": "window",
+   "type": "single_hung",
+   "center": 25.75,
+   "width": 3.0,
+   "height": 3.0,
+   "sill": 4.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Kitchen + Dining",
+    "exterior"
+   ]
+  },
+  {
+   "id": "N05",
+   "wall": "ext-front",
+   "kind": "window",
+   "type": "single_hung",
+   "center": 32.75,
+   "width": 3.0,
+   "height": 6.0,
+   "sill": 1.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Kitchen + Dining",
+    "exterior"
+   ]
+  },
+  {
+   "id": "N06",
+   "wall": "ext-right",
+   "kind": "window",
+   "type": "single_hung",
+   "center": 4.75,
+   "width": 3.0,
+   "height": 6.0,
+   "sill": 1.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Kitchen + Dining",
+    "exterior"
+   ]
+  },
+  {
+   "id": "N07",
+   "wall": "ext-left",
+   "kind": "window",
+   "type": "single_hung",
+   "center": 22.25,
+   "width": 3.0,
+   "height": 6.0,
+   "sill": 1.0,
+   "hinge": "b",
+   "swing_side": 1,
+   "between": [
+    "Bedroom 2",
+    "exterior"
+   ]
+  },
+  {
+   "id": "N08",
+   "wall": "ext-left",
+   "kind": "window",
+   "type": "single_hung",
+   "center": 5.25,
+   "width": 3.0,
+   "height": 6.0,
+   "sill": 1.0,
+   "hinge": "b",
+   "swing_side": 1,
+   "between": [
+    "Bedroom 3",
+    "exterior"
+   ]
+  },
+  {
+   "id": "N09",
+   "wall": "ext-right",
+   "kind": "window",
+   "type": "single_hung",
+   "center": 21.75,
+   "width": 3.0,
+   "height": 6.0,
+   "sill": 1.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Bedroom 4",
+    "exterior"
+   ]
+  },
+  {
+   "id": "N10",
+   "wall": "ext-back",
+   "kind": "window",
+   "type": "single_hung",
+   "center": 8.25,
+   "width": 3.0,
+   "height": 6.0,
+   "sill": 1.0,
+   "hinge": "b",
+   "swing_side": 1,
+   "between": [
+    "Primary Bedroom",
+    "exterior"
+   ]
+  },
+  {
+   "id": "N11",
+   "wall": "ext-right",
+   "kind": "window",
+   "type": "single_hung",
+   "center": 38.25,
+   "width": 3.0,
+   "height": 6.0,
+   "sill": 1.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Primary Bedroom",
+    "exterior"
+   ]
+  },
+  {
+   "id": "N12",
+   "wall": "ext-right",
+   "kind": "window",
+   "type": "single_hung",
+   "center": 29.75,
+   "width": 2.0,
+   "height": 3.0,
+   "sill": 4.0,
+   "hinge": "a",
+   "swing_side": 1,
+   "between": [
+    "Primary Bath",
+    "exterior"
+   ]
+  }
+ ],
+ "rooms": [
+  {
+   "name": "Living",
+   "kind": "living",
+   "level": "L1",
+   "net_area_sf": 314.59,
+   "clear_ft": [
+    20.5,
+    15.312
+   ],
+   "boundary": [
+    [
+     20.8125,
+     16.0
+    ],
+    [
+     20.8125,
+     15.8125
+    ],
+    [
+     21.0,
+     15.8125
+    ],
+    [
+     21.0,
+     0.5
+    ],
+    [
+     0.5,
+     0.5
+    ],
+    [
+     0.5,
+     15.8125
+    ],
+    [
+     17.1875,
+     15.8125
+    ],
+    [
+     17.1875,
+     16.0
+    ]
+   ]
+  },
+  {
+   "name": "Kitchen + Dining",
+   "kind": "kitchen",
+   "level": "L1",
+   "net_area_sf": 252.66,
+   "clear_ft": [
+    16.5,
+    15.312
+   ],
+   "boundary": [
+    [
+     21.0,
+     15.8125
+    ],
+    [
+     37.5,
+     15.8125
+    ],
+    [
+     37.5,
+     0.5
+    ],
+    [
+     21.0,
+     0.5
+    ]
+   ]
+  },
+  {
+   "name": "Closet 4",
+   "kind": "closet",
+   "level": "L1",
+   "net_area_sf": 10.89,
+   "clear_ft": [
+    5.125,
+    2.125
+   ],
+   "boundary": [
+    [
+     31.3125,
+     18.3125
+    ],
+    [
+     31.3125,
+     16.1875
+    ],
+    [
+     26.1875,
+     16.1875
+    ],
+    [
+     26.1875,
+     18.3125
+    ]
+   ]
+  },
+  {
+   "name": "Utility",
+   "kind": "utility",
+   "level": "L1",
+   "net_area_sf": 23.7,
+   "clear_ft": [
+    4.625,
+    5.125
+   ],
+   "boundary": [
+    [
+     21.1875,
+     21.3125
+    ],
+    [
+     25.8125,
+     21.3125
+    ],
+    [
+     25.8125,
+     16.1875
+    ],
+    [
+     21.1875,
+     16.1875
+    ]
+   ]
+  },
+  {
+   "name": "Bedroom 2",
+   "kind": "bedroom",
+   "level": "L1",
+   "net_area_sf": 173.32,
+   "clear_ft": [
+    16.312,
+    10.625
+   ],
+   "boundary": [
+    [
+     0.5,
+     26.8125
+    ],
+    [
+     16.8125,
+     26.8125
+    ],
+    [
+     16.8125,
+     16.1875
+    ],
+    [
+     0.5,
+     16.1875
+    ]
+   ]
+  },
+  {
+   "name": "Bedroom 4",
+   "kind": "bedroom",
+   "level": "L1",
+   "net_area_sf": 132.07,
+   "clear_ft": [
+    11.312,
+    8.125
+   ],
+   "boundary": [
+    [
+     21.1875,
+     26.8125
+    ],
+    [
+     37.5,
+     26.8125
+    ],
+    [
+     37.5,
+     16.1875
+    ],
+    [
+     31.6875,
+     16.1875
+    ],
+    [
+     31.6875,
+     18.3125
+    ],
+    [
+     31.6875,
+     18.6875
+    ],
+    [
+     26.1875,
+     18.6875
+    ],
+    [
+     26.1875,
+     21.3125
+    ],
+    [
+     26.1875,
+     21.6875
+    ],
+    [
+     21.1875,
+     21.6875
+    ]
+   ]
+  },
+  {
+   "name": "Closet 2",
+   "kind": "closet",
+   "level": "L1",
+   "net_area_sf": 16.57,
+   "clear_ft": [
+    6.312,
+    2.625
+   ],
+   "boundary": [
+    [
+     0.5,
+     27.1875
+    ],
+    [
+     0.5,
+     29.8125
+    ],
+    [
+     6.8125,
+     29.8125
+    ],
+    [
+     6.8125,
+     27.1875
+    ]
+   ]
+  },
+  {
+   "name": "Hall",
+   "kind": "hall",
+   "level": "L1",
+   "net_area_sf": 99.69,
+   "clear_ft": [
+    3.625,
+    27.5
+   ],
+   "boundary": [
+    [
+     17.1875,
+     16.0
+    ],
+    [
+     17.1875,
+     16.1875
+    ],
+    [
+     17.1875,
+     43.5
+    ],
+    [
+     20.8125,
+     43.5
+    ],
+    [
+     20.8125,
+     16.1875
+    ],
+    [
+     20.8125,
+     16.0
+    ]
+   ]
+  },
+  {
+   "name": "Bath 2",
+   "kind": "bath",
+   "level": "L1",
+   "net_area_sf": 54.14,
+   "clear_ft": [
+    9.625,
+    5.625
+   ],
+   "boundary": [
+    [
+     16.8125,
+     27.1875
+    ],
+    [
+     7.1875,
+     27.1875
+    ],
+    [
+     7.1875,
+     32.8125
+    ],
+    [
+     16.8125,
+     32.8125
+    ]
+   ]
+  },
+  {
+   "name": "Primary Closet",
+   "kind": "closet",
+   "level": "L1",
+   "net_area_sf": 42.89,
+   "clear_ft": [
+    7.625,
+    5.625
+   ],
+   "boundary": [
+    [
+     21.1875,
+     32.8125
+    ],
+    [
+     28.8125,
+     32.8125
+    ],
+    [
+     28.8125,
+     27.1875
+    ],
+    [
+     21.1875,
+     27.1875
+    ]
+   ]
+  },
+  {
+   "name": "Primary Bath",
+   "kind": "bath",
+   "level": "L1",
+   "net_area_sf": 46.76,
+   "clear_ft": [
+    8.312,
+    5.625
+   ],
+   "boundary": [
+    [
+     29.1875,
+     32.8125
+    ],
+    [
+     37.5,
+     32.8125
+    ],
+    [
+     37.5,
+     27.1875
+    ],
+    [
+     29.1875,
+     27.1875
+    ]
+   ]
+  },
+  {
+   "name": "Closet 3",
+   "kind": "closet",
+   "level": "L1",
+   "net_area_sf": 16.57,
+   "clear_ft": [
+    6.312,
+    2.625
+   ],
+   "boundary": [
+    [
+     0.5,
+     30.1875
+    ],
+    [
+     0.5,
+     32.8125
+    ],
+    [
+     6.8125,
+     32.8125
+    ],
+    [
+     6.8125,
+     30.1875
+    ]
+   ]
+  },
+  {
+   "name": "Bedroom 3",
+   "kind": "bedroom",
+   "level": "L1",
+   "net_area_sf": 168.22,
+   "clear_ft": [
+    16.312,
+    10.312
+   ],
+   "boundary": [
+    [
+     0.5,
+     43.5
+    ],
+    [
+     16.8125,
+     43.5
+    ],
+    [
+     16.8125,
+     33.1875
+    ],
+    [
+     0.5,
+     33.1875
+    ]
+   ]
+  },
+  {
+   "name": "Primary Bedroom",
+   "kind": "bedroom",
+   "level": "L1",
+   "net_area_sf": 168.22,
+   "clear_ft": [
+    16.312,
+    10.312
+   ],
+   "boundary": [
+    [
+     21.1875,
+     43.5
+    ],
+    [
+     37.5,
+     43.5
+    ],
+    [
+     37.5,
+     33.1875
+    ],
+    [
+     21.1875,
+     33.1875
+    ]
+   ]
+  }
+ ],
+ "roof": {
+  "type": "hip",
+  "pitch": 5.0,
+  "overhang": 1.0,
+  "fascia": 0.5
+ },
+ "stairs": [],
+ "site": {
+  "lot_width": 50,
+  "lot_depth": 100,
+  "setbacks": {
+   "front": 25,
+   "side": 5,
+   "rear": 25
+  },
+  "house_offset": [
+   6.0,
+   26.0
+  ],
+  "floor_above_grade": 1.0,
+  "flood": {
+   "zone": "X"
+  }
+ },
+ "gross_area_sf": 1672.0,
+ "conditioned_area_sf": 1672.0,
+ "notice": "CONCEPT \u2014 NOT FOR CONSTRUCTION \u2014 requires validation by a licensed Texas architect/PE."
+}
